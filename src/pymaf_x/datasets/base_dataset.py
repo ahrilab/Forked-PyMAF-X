@@ -13,15 +13,15 @@ import numpy as np
 from os.path import join
 from torch.utils.data import Dataset
 from torchvision.transforms import Normalize
-from utils.cam_params import read_cam_params, homo_vector
+from pymaf_x.utils.cam_params import read_cam_params, homo_vector
 import joblib
 
-from core import path_config, constants
-from core.cfgs import cfg
-from utils.imutils import crop, flip_img, flip_pose, flip_aa, flip_kp, transform, get_transform, get_rot_transf, rot_aa
-from models.smpl import SMPL, get_part_joints
-from utils.geometry import projection, perspective_projection, estimate_translation
-from utils.cam_params import f_pix2vfov, vfov2f_pix
+from pymaf_x.core import path_config, constants
+from pymaf_x.core.cfgs import cfg
+from pymaf_x.utils.imutils import crop, flip_img, flip_pose, flip_aa, flip_kp, transform, get_transform, get_rot_transf, rot_aa
+from pymaf_x.models.smpl import SMPL, get_part_joints
+from pymaf_x.utils.geometry import projection, perspective_projection, estimate_translation
+from pymaf_x.utils.cam_params import f_pix2vfov, vfov2f_pix
 import torch.nn.functional as F
 import scipy.misc
 from kornia.filters import motion_blur, gaussian_blur2d

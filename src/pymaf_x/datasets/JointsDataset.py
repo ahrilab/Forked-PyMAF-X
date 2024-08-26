@@ -17,7 +17,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from core import path_config, constants
+from pymaf_x.core import path_config, constants
 from .base_dataset import BaseDataset
 
 logger = logging.getLogger(__name__)

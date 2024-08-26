@@ -5,7 +5,7 @@ import torch.nn as nn
 import torchvision.models.resnet as resnet
 import numpy as np
 import math
-from utils.geometry import rot6d_to_rotmat
+from pymaf_x.utils.geometry import rot6d_to_rotmat
 
 import logging
 logger = logging.getLogger(__name__)

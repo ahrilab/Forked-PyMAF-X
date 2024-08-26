@@ -6,7 +6,7 @@ from tqdm import tqdm
 tqdm.monitor_interval = 0
 from tensorboardX import SummaryWriter
 
-from utils import CheckpointSaver
+from pymaf_x.utils import CheckpointSaver
 
 import logging
 logger = logging.getLogger(__name__)

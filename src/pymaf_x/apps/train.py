@@ -5,10 +5,10 @@ import torch
 import random
 import numpy as np
 
-from core.train_options import TrainOptions
-from core.cfgs import cfg, parse_args_extend
-from utils.train_utils import prepare_env
-from core.trainer import Trainer
+from pymaf_x.core.train_options import TrainOptions
+from pymaf_x.core.cfgs import cfg, parse_args_extend
+from pymaf_x.utils.train_utils import prepare_env
+from pymaf_x.core.trainer import Trainer
 
 import torch.distributed as dist
 

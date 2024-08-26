@@ -1,9 +1,9 @@
 import torch
 import numpy as np
 import neural_renderer as nr
-from core import path_config
+from pymaf_x.core import path_config
 
-from models import SMPL
+from pymaf_x.models import SMPL
 
 class PartRenderer():
     """Renderer used to render segmentation masks and part segmentations.

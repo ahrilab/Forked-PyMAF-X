@@ -38,20 +38,20 @@ from skimage.transform import resize
 from torchvision.transforms import Normalize
 from collections import OrderedDict
 
-from core.cfgs import cfg, parse_args
-from models import hmr, pymaf_net
-from models.smpl import get_partial_smpl, SMPL, SMPLX
-from core import path_config, constants
-from datasets.inference import Inference
-from utils.renderer import PyRenderer
-from utils.imutils import crop
-from utils.demo_utils import (
+from pymaf_x.core.cfgs import cfg, parse_args
+from pymaf_x.models import hmr, pymaf_net
+from pymaf_x.models.smpl import get_partial_smpl, SMPL, SMPLX
+from pymaf_x.core import path_config, constants
+from pymaf_x.datasets.inference import Inference
+from pymaf_x.utils.renderer import PyRenderer
+from pymaf_x.utils.imutils import crop
+from pymaf_x.utils.demo_utils import (
     download_url,
     convert_crop_cam_to_orig_img,
     video_to_images,
     images_to_video,
 )
-from utils.geometry import convert_to_full_img_cam
+from pymaf_x.utils.geometry import convert_to_full_img_cam
 
 from openpifpaf import decoder as ppdecoder
 from openpifpaf import network as ppnetwork

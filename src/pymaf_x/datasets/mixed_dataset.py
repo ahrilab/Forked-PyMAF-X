@@ -4,8 +4,8 @@ This file contains the definition of different heterogeneous datasets used for t
 """
 import torch
 import numpy as np
-import core.path_config as path_config
-from core.cfgs import cfg
+import pymaf_x.core.path_config as path_config
+from pymaf_x.core.cfgs import cfg
 
 from .base_dataset import BaseDataset
 

@@ -11,17 +11,17 @@ import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
 
-from core.cfgs import cfg
-from utils.geometry import projection
-from core import constants, path_config
+from pymaf_x.core.cfgs import cfg
+from pymaf_x.utils.geometry import projection
+from pymaf_x.core import constants, path_config
 import json
 
 import logging
 logger = logging.getLogger(__name__)
 
-from utils.iuvmap import iuv_img2map, iuv_map2img, seg_img2map
+from pymaf_x.utils.iuvmap import iuv_img2map, iuv_map2img, seg_img2map
 from .smpl import get_smpl_tpose
-from utils.imutils import j2d_processing
+from pymaf_x.utils.imutils import j2d_processing
 
 
 class Mesh_Sampler(nn.Module):

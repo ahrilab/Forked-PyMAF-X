@@ -25,14 +25,14 @@ from torchvision.transforms.functional import to_tensor
 import torch.nn.functional as F
 from torchvision.transforms import Normalize
 
-from utils.smooth_bbox import get_all_bbox_params
+from pymaf_x.utils.smooth_bbox import get_all_bbox_params
 from .data_utils.img_utils import get_single_image_crop_demo
-from utils.cam_params import read_cam_params, homo_vector
+from pymaf_x.utils.cam_params import read_cam_params, homo_vector
 
 
-from core import path_config, constants
-from core.cfgs import cfg
-from utils.imutils import crop, flip_img, flip_pose, flip_aa, flip_kp, transform, get_transform, get_rot_transf, rot_aa
+from pymaf_x.core import path_config, constants
+from pymaf_x.core.cfgs import cfg
+from pymaf_x.utils.imutils import crop, flip_img, flip_pose, flip_aa, flip_kp, transform, get_transform, get_rot_transf, rot_aa
 
 
 class Inference(Dataset):

@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from collections import OrderedDict
-from core.cfgs import cfg
+from pymaf_x.core.cfgs import cfg
 # from .transformers.tokenlearner import TokenLearner
 
 

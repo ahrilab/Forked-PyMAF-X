@@ -24,22 +24,22 @@ import torch.utils.data
 import torch.utils.data.distributed
 
 from .base_trainer import BaseTrainer
-from datasets import MixedDataset, BaseDataset
-from models import hmr, pymaf_net, SMPL
-from utils.pose_utils import compute_similarity_transform_batch
-from utils.geometry import batch_rodrigues, projection, perspective_projection, estimate_translation, rot6d_to_rotmat, rotation_matrix_to_angle_axis
+from pymaf_x.datasets import MixedDataset, BaseDataset
+from pymaf_x.models import hmr, pymaf_net, SMPL
+from pymaf_x.utils.pose_utils import compute_similarity_transform_batch
+from pymaf_x.utils.geometry import batch_rodrigues, projection, perspective_projection, estimate_translation, rot6d_to_rotmat, rotation_matrix_to_angle_axis
 
 from core import path_config, constants
 # from .fits_dict import FitsDict, HandFaceFitsDict
 from .cfgs import cfg
-from utils.train_utils import print_args
-from utils.iuvmap import iuv_img2map, iuv_map2img, seg_img2map
-from utils.imutils import flip_aa, j2d_processing
-from models.smpl import get_model_faces, get_partial_smpl
-from utils.vis import vis_batch_image_with_joints
+from pymaf_x.utils.train_utils import print_args
+from pymaf_x.utils.iuvmap import iuv_img2map, iuv_map2img, seg_img2map
+from pymaf_x.utils.imutils import flip_aa, j2d_processing
+from pymaf_x.models.smpl import get_model_faces, get_partial_smpl
+from pymaf_x.utils.vis import vis_batch_image_with_joints
 from einops import rearrange
 
-from models.smpl import SMPL, SMPL_MODEL_DIR
+from pymaf_x.models.smpl import SMPL, SMPL_MODEL_DIR
 
 try:
     from human_body_prior.tools.model_loader import load_model

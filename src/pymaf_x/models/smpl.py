@@ -24,7 +24,7 @@ from smplx.lbs import vertices2joints, blend_shapes, vertices2landmarks
 from collections import namedtuple
 import json
 
-from core import path_config, constants
+from pymaf_x.core import path_config, constants
 
 SMPL_MEAN_PARAMS = path_config.SMPL_MEAN_PARAMS
 SMPL_MODEL_DIR = path_config.SMPL_MODEL_DIR

@@ -9,11 +9,11 @@ import torch
 import torch.nn as nn
 import numpy as np
 import json
-from core import constants
+from pymaf_x.core import constants
 from einops import rearrange
 
-from core.cfgs import cfg
-from utils.geometry import rot6d_to_rotmat, rotmat_to_rot6d, projection, rotation_matrix_to_angle_axis, rotmat_to_angle, compute_twist_rotation
+from pymaf_x.core.cfgs import cfg
+from pymaf_x.utils.geometry import rot6d_to_rotmat, rotmat_to_rot6d, projection, rotation_matrix_to_angle_axis, rotmat_to_angle, compute_twist_rotation
 from .maf_extractor import MAF_Extractor, Mesh_Sampler
 from .smpl import SMPL, SMPLX, SMPLX_ALL, SMPL_MODEL_DIR, SMPL_MEAN_PARAMS, get_model_faces, get_partial_smpl, SMPL_Family
 from smplx.lbs import batch_rodrigues
@@ -21,13 +21,13 @@ from .hmr import ResNet_Backbone
 from .res_module import IUV_predict_layer, Seg_predict_layer, Kps_predict_layer, LimbResLayers
 from .hr_module import get_hrnet_encoder
 from .pose_resnet import get_resnet_encoder
-from utils.imutils import j2d_processing
+from pymaf_x.utils.imutils import j2d_processing
 import torch.nn.functional as F
-from utils.keypoints import softmax_integral_tensor
-from utils.cam_params import homo_vector
+from pymaf_x.utils.keypoints import softmax_integral_tensor
+from pymaf_x.utils.cam_params import homo_vector
 from .attention import get_att_block
 
-from core import path_config
+from pymaf_x.core import path_config
 from os.path import join
 
 import logging

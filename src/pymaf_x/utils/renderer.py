@@ -10,9 +10,9 @@ from skimage.transform import resize
 from torchvision.utils import make_grid
 import torch.nn.functional as F
 
-from models.smpl import get_smpl_faces, get_model_faces, get_model_tpose
+from pymaf_x.models.smpl import get_smpl_faces, get_model_faces, get_model_tpose
 from utils.densepose_methods import DensePoseMethods
-from core import constants, path_config
+from pymaf_x.core import constants, path_config
 import json
 from .geometry import convert_to_full_img_cam
 from utils.imutils import crop

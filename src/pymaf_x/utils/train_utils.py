@@ -4,7 +4,7 @@ import json
 import random
 import string
 from datetime import datetime
-from core.cfgs import cfg
+from pymaf_x.core.cfgs import cfg
 
 import logging
 logger = logging.getLogger(__name__)

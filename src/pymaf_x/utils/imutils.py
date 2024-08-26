@@ -9,7 +9,7 @@ import cv2
 import skimage.transform
 from PIL import Image
 
-from core import constants
+from pymaf_x.core import constants
 
 def get_transform(center, scale, res, rot=0):
     """Generate transformation matrix."""
