@@ -33,19 +33,19 @@ class Mesh_Sampler(nn.Module):
 
         self.model_type = type
         if type == 'flame':
-            sampling_idx = torch.LongTensor(list(np.load('data/flame_downsampling.npy')))
+            sampling_idx = torch.LongTensor(list(np.load('data/pymaf_x/flame_downsampling.npy')))
             self.register_buffer('sampling_idx', sampling_idx)
         else:
             # downsample SMPL mesh and assign part labels
             if type == 'smpl':
                 # from https://github.com/nkolot/GraphCMR/blob/master/data/mesh_downsampling.npz
-                smpl_mesh_graph = np.load('data/smpl_downsampling.npz', allow_pickle=True, encoding='latin1')
+                smpl_mesh_graph = np.load('data/pymaf_x/smpl_downsampling.npz', allow_pickle=True, encoding='latin1')
 
                 A = smpl_mesh_graph['A']
                 U = smpl_mesh_graph['U']
                 D = smpl_mesh_graph['D'] # shape: (2,)
             elif type == 'mano':
-                mano_mesh_graph = np.load('data/mano_downsampling.npz', allow_pickle=True, encoding='latin1')
+                mano_mesh_graph = np.load('data/pymaf_x/mano_downsampling.npz', allow_pickle=True, encoding='latin1')
 
                 A = mano_mesh_graph['A']
                 U = mano_mesh_graph['U']
@@ -134,7 +134,7 @@ class MAF_Extractor(nn.Module):
 
         # downsample SMPL mesh and assign part labels
         # from https://github.com/nkolot/GraphCMR/blob/master/data/mesh_downsampling.npz
-        smpl_mesh_graph = np.load('data/smpl_downsampling.npz', allow_pickle=True, encoding='latin1')
+        smpl_mesh_graph = np.load('data/pymaf_x/smpl_downsampling.npz', allow_pickle=True, encoding='latin1')
 
         A = smpl_mesh_graph['A']
         U = smpl_mesh_graph['U']

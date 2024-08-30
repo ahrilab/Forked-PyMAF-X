@@ -846,7 +846,7 @@ def get_partial_smpl(body_model='smpl', device=torch.device('cuda')):
     part_vert_faces = {}
 
     for part in ['lhand', 'rhand', 'face', 'arm', 'forearm', 'larm', 'rarm', 'lwrist', 'rwrist']:
-        part_vid_fname = 'data/partial_mesh/{}_{}_vids.npz'.format(body_model, part)
+        part_vid_fname = 'data/pymaf_x/partial_mesh/{}_{}_vids.npz'.format(body_model, part)
         if os.path.exists(part_vid_fname):
             part_vids = np.load(part_vid_fname)
             part_vert_faces[part] = {'vids': part_vids['vids'], 'faces': part_vids['faces']}
