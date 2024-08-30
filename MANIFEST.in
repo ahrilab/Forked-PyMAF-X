@@ -1,1 +1,2 @@
 include src/pymaf_x/configs/*.yaml
+include src/pymaf_x/models/transformers/bert/bert-base-uncased/*.json

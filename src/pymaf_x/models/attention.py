@@ -11,6 +11,7 @@ import math
 import os
 import code
 import torch
+import importlib.resources as pkg_resources
 from torch import nn
 from .transformers.bert.modeling_bert import BertPreTrainedModel, BertEmbeddings, BertPooler, BertIntermediate, BertOutput, BertSelfOutput
 # import src.modeling.data.config as cfg
@@ -298,7 +299,10 @@ class EncoderBlock(BertPreTrainedModel):
 def get_att_block(img_feature_dim=2048, output_feat_dim=512, n_points=900, hidden_feat_dim=1024, num_attention_heads=4, num_hidden_layers=1):
 
     config_class = BertConfig
-    config = config_class.from_pretrained('models/transformers/bert/bert-base-uncased/')
+    # config = config_class.from_pretrained('models/transformers/bert/bert-base-uncased/')
+
+    with pkg_resources.path("pymaf_x.models.transformers.bert.bert-base-uncased", "config.json") as bert_cfg_path:
+        config = config_class.from_json_file(bert_cfg_path)
 
     interm_size_scale = 2
 
