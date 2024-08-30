@@ -872,8 +872,8 @@ def get_partial_smpl(body_model='smpl', device=torch.device('cuda')):
                     v_closest = torch.argmin(v_diff)
                     smpl2mano_id.append(int(v_closest))
 
-                smpl2mano_vids = np.array(smpl2mano_id).astype(np.long)
-                mano_faces = get_mano_faces(hand_type='right' if part == 'rhand' else 'left').astype(np.long)
+                smpl2mano_vids = np.array(smpl2mano_id).astype(np.longlong)
+                mano_faces = get_mano_faces(hand_type='right' if part == 'rhand' else 'left').astype(np.longlong)
 
                 np.savez(part_vid_fname, vids=smpl2mano_vids, faces=mano_faces)
                 part_vert_faces[part] = {'vids': smpl2mano_vids, 'faces': mano_faces}
@@ -910,14 +910,14 @@ def get_partial_smpl(body_model='smpl', device=torch.device('cuda')):
                     if any(f in part_body_idx for f in face):
                         part_body_fid.append(f_id)
 
-                smpl2head_vids = np.unique(body_model_faces[part_body_fid]).astype(np.long)
+                smpl2head_vids = np.unique(body_model_faces[part_body_fid]).astype(np.longlong)
 
                 mesh_vid_raw = np.arange(body_model_num_verts)
                 head_vid_new = np.arange(len(smpl2head_vids))
                 mesh_vid_raw[smpl2head_vids] = head_vid_new
 
                 head_faces = body_model_faces[part_body_fid]
-                head_faces = mesh_vid_raw[head_faces].astype(np.long)
+                head_faces = mesh_vid_raw[head_faces].astype(np.longlong)
 
                 np.savez(part_vid_fname, vids=smpl2head_vids, faces=head_faces)
                 part_vert_faces[part] = {'vids': smpl2head_vids, 'faces': head_faces}
@@ -949,14 +949,14 @@ def get_partial_smpl(body_model='smpl', device=torch.device('cuda')):
                     if any(f in wrist_vids for f in face):
                         part_body_fid.append(f_id)
 
-                smpl2part_vids = np.unique(body_model_faces[part_body_fid]).astype(np.long)
+                smpl2part_vids = np.unique(body_model_faces[part_body_fid]).astype(np.longlong)
 
                 mesh_vid_raw = np.arange(body_model_num_verts)
                 part_vid_new = np.arange(len(smpl2part_vids))
                 mesh_vid_raw[smpl2part_vids] = part_vid_new
 
                 part_faces = body_model_faces[part_body_fid]
-                part_faces = mesh_vid_raw[part_faces].astype(np.long)
+                part_faces = mesh_vid_raw[part_faces].astype(np.longlong)
 
                 np.savez(part_vid_fname, vids=smpl2part_vids, faces=part_faces)
                 part_vert_faces[part] = {'vids': smpl2part_vids, 'faces': part_faces}
