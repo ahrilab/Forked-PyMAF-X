@@ -12,7 +12,7 @@ import json
 from pymaf_x.core import constants
 from einops import rearrange
 
-from pymaf_x.core.cfgs import cfg
+from pymaf_x.core.cfgs import cfg, load_config_file
 from pymaf_x.utils.geometry import rot6d_to_rotmat, rotmat_to_rot6d, projection, rotation_matrix_to_angle_axis, rotmat_to_angle, compute_twist_rotation
 from .maf_extractor import MAF_Extractor, Mesh_Sampler
 from .smpl import SMPL, SMPLX, SMPLX_ALL, SMPL_MODEL_DIR, SMPL_MEAN_PARAMS, get_model_faces, get_partial_smpl, SMPL_Family
@@ -1523,5 +1523,7 @@ def pymaf_net(smpl_mean_params, device=torch.device('cuda'), is_train=True):
     Args:
         is_train (bool): If True, load ImageNet/COCO pre-trained models
     """
+    load_config_file()
+
     model = PyMAF(smpl_mean_params, device, is_train)
     return model

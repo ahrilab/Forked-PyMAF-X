@@ -5,6 +5,9 @@ setup(
     version="0.0.1",
     packages=find_packages("src"),
     package_dir={"": "src"},
+    package_data={
+        "pymaf_x": ['src/pymaf_x/configs/*.yaml'],
+    },
     include_package_data=True,
     # data_files=[()],
     author=[

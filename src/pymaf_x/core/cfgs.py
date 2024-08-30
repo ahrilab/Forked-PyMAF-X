@@ -19,6 +19,7 @@ import json
 import random
 import string
 import argparse
+import importlib.resources
 from datetime import datetime
 from yacs.config import CfgNode as CN
 
@@ -66,6 +67,18 @@ def get_cfg_defaults():
     # This is for the "local variable" use pattern
     # return cfg.clone()
     return cfg
+
+def get_config_path():
+    # First param is the package name (which is path/to/python/site-package/"[THIS]")
+    # Second param is the file name.
+    with importlib.resources.path('pymaf_x.configs', 'pymafx_config.yaml') as cfg_path:
+        return cfg_path
+
+def load_config_file():
+    config_file_path = get_config_path()
+    cfg.merge_from_file(config_file_path)
+
+
 
 def update_cfg(cfg_file):
     # cfg = get_cfg_defaults()

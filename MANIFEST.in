@@ -1,0 +1,1 @@
+include src/pymaf_x/configs/*.yaml
