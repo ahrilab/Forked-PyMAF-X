@@ -26,7 +26,7 @@ import torch.nn.functional as F
 from torchvision.transforms import Normalize
 
 from pymaf_x.utils.smooth_bbox import get_all_bbox_params
-from .data_utils.img_utils import get_single_image_crop_demo
+from pymaf_x.datasets.data_utils.img_utils import get_single_image_crop_demo
 from pymaf_x.utils.cam_params import read_cam_params, homo_vector
 
 
@@ -36,16 +36,8 @@ from pymaf_x.utils.imutils import crop, flip_img, flip_pose, flip_aa, flip_kp, t
 
 
 class Inference(Dataset):
-    def __init__(self, image_folder, frames, bboxes=None, joints2d=None, scale=1.0, crop_size=224, pre_load_imgs=None, full_body=False, person_ids=[], wb_kps={}):
+    def __init__(self, frames, bboxes=None, joints2d=None, scale=1.0, crop_size=224, pre_load_imgs=None, full_body=False, person_ids=[], wb_kps={}):
         self.pre_load_imgs = pre_load_imgs
-        if pre_load_imgs is None:
-            self.image_file_names = [
-                osp.join(image_folder, x)
-                for x in os.listdir(image_folder)
-                if x.endswith('.png') or x.endswith('.jpg')
-            ]
-            self.image_file_names = sorted(self.image_file_names)
-            self.image_file_names = np.array(self.image_file_names)[frames]
         self.bboxes = bboxes
         self.joints2d = joints2d
         self.scale_factor = scale

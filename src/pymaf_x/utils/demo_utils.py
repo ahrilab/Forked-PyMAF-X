@@ -25,9 +25,9 @@ import os.path as osp
 # from pytube import YouTube
 from collections import OrderedDict
 
-from utils.smooth_bbox import get_smooth_bbox_params, get_all_bbox_params
+from pymaf_x.utils.smooth_bbox import get_smooth_bbox_params, get_all_bbox_params
 from pymaf_x.datasets.data_utils.img_utils import get_single_image_crop_demo
-from utils.geometry import rotation_matrix_to_angle_axis
+from pymaf_x.utils.geometry import rotation_matrix_to_angle_axis
 # from smplify.temporal_smplify import TemporalSMPLify
 
 

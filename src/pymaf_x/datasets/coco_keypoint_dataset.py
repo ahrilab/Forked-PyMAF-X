@@ -13,9 +13,9 @@ from collections import OrderedDict
 import logging
 import os
 
-from pycocotools.coco import COCO
-from pycocotools.cocoeval import COCOeval
-import json_tricks as json
+# from pycocotools.coco import COCO
+# from pycocotools.cocoeval import COCOeval
+# import json_tricks as json
 import numpy as np
 
 from .JointsDataset import JointsDataset
