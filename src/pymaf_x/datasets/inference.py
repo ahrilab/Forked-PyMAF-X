@@ -57,7 +57,6 @@ class Inference(Dataset):
                 bboxes[:, 2:] = 150. / bboxes[:, 2:]
                 self.bboxes = np.stack([bboxes[:, 0], bboxes[:, 1], bboxes[:, 2], bboxes[:, 2]]).T
 
-                self.image_file_names = self.image_file_names[time_pt1:time_pt2]
                 self.joints2d = joints2d[time_pt1:time_pt2]
                 self.frames = frames[time_pt1:time_pt2]
             else:
@@ -86,7 +85,6 @@ class Inference(Dataset):
                 self.bboxes = np.stack(bboxes)
                 self.scales = np.array(scales)
 
-                self.image_file_names = self.image_file_names
                 self.joints2d = joints2d
                 self.frames = frames
 
@@ -153,7 +151,9 @@ class Inference(Dataset):
 
     def __getitem__(self, idx):
         if self.pre_load_imgs is not None:
-            img = self.pre_load_imgs
+            img = self.pre_load_imgs[idx]
+            img_orig = np.array(img)
+            orig_height, orig_width = img_orig.shape[:2]
         else:
             # img = cv2.cvtColor(cv2.imread(self.image_file_names[idx]), cv2.COLOR_BGR2RGB)
             img_orig = cv2.imread(self.image_file_names[idx])[:,:,::-1].copy().astype(np.float32)
